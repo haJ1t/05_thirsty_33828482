@@ -1,20 +1,32 @@
+<!-- register.ejs -->
+<!-- Registration page: collects user details and posts them to the /registered route -->
+
 <!doctype html> 
 <html>  
   <head> 
+    <!-- Base stylesheet and dynamic page title -->
     <link rel="stylesheet" href="/style.css"> 
-    <title><%=shopName%></title> 
+    <title><%= shopName %></title> 
   </head>  
+
   <body> 
+    <!-- Include shared site header -->
     <%- include('partials/header') %>
 
+    <!-- Simple registration form -->
     <h1>This is the register page</h1> 
+
     <form method="POST" action="/registered"> 
+        <!-- User information fields -->
         First Name: <input id="first" type="text" name="first"/> <br/>
         Last Name: <input id="last" type="text" name="last"/> <br/>
         Email: <input id="email" type="email" name="email" required/> <br/>
+
+        <!-- Submit button -->
         <input type="submit" value="OK"/> 
     </form>
 
+    <!-- Include shared footer -->
     <%- include('partials/footer') %>
   </body>  
 </html>

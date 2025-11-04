@@ -1,12 +1,19 @@
+<!-- search.ejs -->
+<!-- Search page: allows users to find drinks by name or category and displays dynamic results -->
+
 <!doctype html>
 <html>
   <head>
+    <!-- Load global stylesheet and set dynamic title -->
     <link rel="stylesheet" href="/style.css">
     <title><%= shopName %> - Search</title>
   </head>
+
   <body>
+    <!-- Include shared navigation header -->
     <%- include('partials/header') %>
 
+    <!-- Primary search form (simple query search) -->
     <h1>Search at <%= shopName %></h1>
     <form action="/search" method="get">
       <label for="q">Enter a product name:</label>
@@ -14,16 +21,18 @@
       <button type="submit">Search</button>
     </form>
 
+    <!-- Advanced search form (by name + category) -->
     <form action="/search_result" method="GET">
-        <label for="search_box">Drink Name:</label>
-        <input id="search_box" type="text" name="search_text">
-      
-        <label for="category">Category:</label>
-        <input id="category" type="text" name="category">
-      
-        <input type="submit" value="OK">
-      </form>
+      <label for="search_box">Drink Name:</label>
+      <input id="search_box" type="text" name="search_text">
+    
+      <label for="category">Category:</label>
+      <input id="category" type="text" name="category">
+    
+      <input type="submit" value="OK">
+    </form>
 
+    <!-- Conditional rendering for search results -->
     <% if (results) { %>
       <h2>Results:</h2>
       <% if (results.length > 0) { %>
@@ -37,6 +46,7 @@
       <% } %>
     <% } %>
 
+    <!-- Include shared footer -->
     <%- include('partials/footer') %>
   </body>
 </html>

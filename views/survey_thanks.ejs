@@ -1,15 +1,26 @@
+<!-- survey_thanks.ejs -->
+<!-- Thank-you page displayed after survey submission -->
+
+<!-- Include global header for consistent navigation -->
 <%- include('partials/header') %>
 
+<!-- Main thank-you section -->
 <section class="thanks-section">
   <div class="thanks-card">
+    <!-- Decorative success icon -->
     <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Thank You" class="thanks-icon">
+    
+    <!-- Gratitude message -->
     <h1>Thank You for Your Feedback!</h1>
     <p>
       We really appreciate you taking the time to share your thoughts with us.  
       Your response helps us improve <strong>The Thirsty Student Shop</strong>.
     </p>
+
+    <!-- Navigation button to return home -->
     <a href="/" class="btn-primary">Return Home</a>
   </div>
 </section>
 
+<!-- Include shared footer -->
 <%- include('partials/footer') %>

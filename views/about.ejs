@@ -1,65 +1,79 @@
+<!-- about.ejs -->
+<!-- About page: introduces the Thirsty Student Shop, its mission, values, and locations -->
+
 <!doctype html>
 <html>
   <head>
+    <!-- Page-specific setup -->
     <link rel="stylesheet" href="/style.css">
     <title><%= shopName %></title>
   </head>
+
   <body>
+    <!-- Include shared site header -->
     <%- include('partials/header') %>
 
-<section class="about-hero">
-  <div class="about-text">
-    <h1>About <%= shopName %></h1>
-    <p>
-      Welcome to <strong><%= shopName %></strong> — a student-run beverage shop 
-      that brings the best drinks to your campus life. We believe that a great 
-      drink can brighten your study sessions and make your breaks truly refreshing.
-    </p>
-    <p>
-      Our mission is to deliver quality, affordability, and creativity — 
-      whether you’re grabbing a quick coffee, celebrating with a cold beer, 
-      or just relaxing with a smoothie.
-    </p>
-  </div>
-  <div class="about-image">
-    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="About Thirsty Student">
-  </div>
-</section>
-
-<section class="about-values">
-  <h2>Our Core Values</h2>
-  <div class="value-grid">
-    <div class="value-card">
-      <i class="fa-solid fa-seedling"></i>
-      <h3>Freshness</h3>
-      <p>All our drinks are made from top-quality, fresh ingredients to keep you energized throughout your day.</p>
-    </div>
-    <div class="value-card">
-      <i class="fa-solid fa-handshake"></i>
-      <h3>Community</h3>
-      <p>We love bringing students together — whether it’s through events, discounts, or a cozy spot to chill.</p>
-    </div>
-    <div class="value-card">
-      <i class="fa-solid fa-mug-hot"></i>
-      <h3>Creativity</h3>
-      <p>Our team is always experimenting with new flavors, unique recipes, and fun seasonal specials.</p>
-    </div>
-  </div>
-</section>
-
-<section class="shop-locations">
-  <h2>Our Shop Locations</h2>
-  <div class="shop-grid">
-    <% for(let i = 0; i < shops.length; i++) { %>
-      <div class="shop-card">
-        <h3><i class="fa-solid fa-store"></i> Shop <%= i+1 %></h3>
-        <p><strong>Manager:</strong> <%= shops[i].manager %></p>
-        <p><strong>Address:</strong> <%= shops[i].address %></p>
+    <!-- Hero section: main about content with image -->
+    <section class="about-hero">
+      <div class="about-text">
+        <h1>About <%= shopName %></h1>
+        <p>
+          Welcome to <strong><%= shopName %></strong> — a student-run beverage shop 
+          that brings the best drinks to your campus life. We believe that a great 
+          drink can brighten your study sessions and make your breaks truly refreshing.
+        </p>
+        <p>
+          Our mission is to deliver quality, affordability, and creativity — 
+          whether you’re grabbing a quick coffee, celebrating with a cold beer, 
+          or just relaxing with a smoothie.
+        </p>
       </div>
-    <% } %>
-  </div>
-</section>
 
-<%- include('partials/footer') %>
+      <div class="about-image">
+        <!-- Visual representation for About section -->
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="About Thirsty Student">
+      </div>
+    </section>
+
+    <!-- Values section: shows company principles -->
+    <section class="about-values">
+      <h2>Our Core Values</h2>
+      <div class="value-grid">
+        <div class="value-card">
+          <i class="fa-solid fa-seedling"></i>
+          <h3>Freshness</h3>
+          <p>All our drinks are made from top-quality, fresh ingredients to keep you energized throughout your day.</p>
+        </div>
+
+        <div class="value-card">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Community</h3>
+          <p>We love bringing students together — whether it’s through events, discounts, or a cozy spot to chill.</p>
+        </div>
+
+        <div class="value-card">
+          <i class="fa-solid fa-mug-hot"></i>
+          <h3>Creativity</h3>
+          <p>Our team is always experimenting with new flavors, unique recipes, and fun seasonal specials.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shop locations section: dynamically renders store list -->
+    <section class="shop-locations">
+      <h2>Our Shop Locations</h2>
+      <div class="shop-grid">
+        <% for(let i = 0; i < shops.length; i++) { %>
+          <div class="shop-card">
+            <h3><i class="fa-solid fa-store"></i> Shop <%= i+1 %></h3>
+            <p><strong>Manager:</strong> <%= shops[i].manager %></p>
+            <p><strong>Address:</strong> <%= shops[i].address %></p>
+          </div>
+        <% } %>
+      </div>
+    </section>
+
+    <!-- Include shared site footer -->
+    <%- include('partials/footer') %>
   </body>
 </html>
