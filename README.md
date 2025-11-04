@@ -111,7 +111,7 @@ Through this lab, the project demonstrates:
 
 1. Clone or download this repository  
    ```bash
-   git clone https://github.com/yourusername/thirsty-student-shop.git
+   git clone https://github.com/haJ1t/05_thirsty_33828482
    cd thirsty-student-shop
    ```
 
@@ -153,7 +153,7 @@ Render / Forever link: https://your-app-name.onrender.com
 
 **GitHub Repository**
 ```
-https://github.com/yourusername/thirsty-student-shop
+https://github.com/haJ1t/05_thirsty_33828482
 ```
 
 ---
