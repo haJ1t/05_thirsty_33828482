@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+    <title><%= shopName %></title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Welcome to <%= shopName %></h1>
+    <p>Your favorite spot for refreshing drinks, crafted with care and served with style.</p>
+    <a href="/about" class="btn-primary">Discover More</a>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80" alt="Drinks">
+  </div>
+</section>
+
+<section class="products">
+  <h2>Our Drinks</h2>
+  <div class="product-grid">
+    <% for(let i = 0; i < productCategories.length; i++) { %>
+      <div class="card">
+        <img src="https://source.unsplash.com/300x200/?<%= productCategories[i] %>,drink" alt="<%= productCategories[i] %>">
+        <h3><%= productCategories[i] %></h3>
+        <p>Enjoy our finest selection of <%= productCategories[i].toLowerCase() %> — made to refresh and delight.</p>
+        <button class="btn-secondary">Shop Now</button>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+    </body>
+</html>

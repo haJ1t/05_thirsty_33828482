@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Customer Survey - <%= shopName %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+<section class="survey-hero">
+  <div class="survey-text">
+    <h1>Customer Satisfaction Survey</h1>
+    <p>
+      We value your feedback! Please take a moment to share your thoughts.  
+      Your input helps <strong><%= shopName %></strong> create even better experiences for our customers.
+    </p>
+  </div>
+  <div class="survey-image">
+    <img src="https://images.unsplash.com/photo-1616627562808-f74d8d1c7c1d?auto=format&fit=crop&w=900&q=80" alt="Survey">
+  </div>
+</section>
+
+<section class="survey-form-section">
+  <h2>Tell Us About You</h2>
+  <form method="POST" action="/survey_submitted" class="survey-form">
+
+    <div class="form-row">
+      <div>
+        <label for="first">First Name:</label>
+        <input type="text" id="first" name="first" required>
+      </div>
+      <div>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="10" max="120">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <h3>Which drink category do you consume most?</h3>
+      <div class="radio-group">
+        <% for(let i = 0; i < productCategories.length; i++) { %>
+          <label class="radio-label">
+            <input type="radio" name="drink" value="<%= productCategories[i] %>" required>
+            <%= productCategories[i] %>
+          </label>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="student" value="Yes">
+        I am a student
+      </label>
+    </div>
+
+    <input type="submit" value="Submit Survey" class="btn-primary">
+  </form>
+</section>
+
+<%- include('partials/footer') %>
+  </body>
+</html>

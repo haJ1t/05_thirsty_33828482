@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+    <title><%= shopName %> - Search</title>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <h1>Search at <%= shopName %></h1>
+    <form action="/search" method="get">
+      <label for="q">Enter a product name:</label>
+      <input type="text" id="q" name="q" placeholder="e.g. Beer">
+      <button type="submit">Search</button>
+    </form>
+
+    <form action="/search_result" method="GET">
+        <label for="search_box">Drink Name:</label>
+        <input id="search_box" type="text" name="search_text">
+      
+        <label for="category">Category:</label>
+        <input id="category" type="text" name="category">
+      
+        <input type="submit" value="OK">
+      </form>
+
+    <% if (results) { %>
+      <h2>Results:</h2>
+      <% if (results.length > 0) { %>
+        <ul>
+          <% for (let i = 0; i < results.length; i++) { %>
+            <li><%= results[i] %></li>
+          <% } %>
+        </ul>
+      <% } else { %>
+        <p>No matching drinks found.</p>
+      <% } %>
+    <% } %>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

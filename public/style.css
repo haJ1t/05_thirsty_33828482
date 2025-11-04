@@ -1,0 +1,519 @@
+/* =====================================
+   GLOBAL STYLES — Modern Corporate UI
+   (Base colors, fonts, shadows, spacing)
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #1a73e8;
+  --primary-dark: #0b53c6;
+  --accent: #ffb300;
+  --bg: #f4f6fb;
+  --text: #222;
+  --card-bg: #fff;
+  --radius: 14px;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =====================================
+   HEADER — Premium Animated Gradient Bar
+===================================== */
+
+header {
+  /* Gradient with subtle animation */
+  background: linear-gradient(120deg, #1a73e8, #0b53c6, #003f88);
+  background-size: 200% 200%;
+  animation: headerGradient 6s ease infinite;
+  color: white;
+  padding: 25px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+@keyframes headerGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.7px;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header h1::before {
+  /* Simple drink emoji as logo */
+  content: "🍸";
+  font-size: 1.5rem;
+}
+
+/* Navigation links */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Underline animation on hover */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* =====================================
+   MAIN CONTENT AREA — Card Container
+===================================== */
+
+main {
+  max-width: 950px;
+  margin: 60px auto;
+  background: var(--card-bg);
+  padding: 50px 60px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3 {
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+/* Simple list design */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  background: #f9fafc;
+  margin: 8px 0;
+  padding: 12px 18px;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+ul li:hover {
+  background: #eef4ff;
+  transform: translateX(4px);
+}
+
+/* =====================================
+   FORMS — Input & Button Styling
+===================================== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+label {
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+/* Form submit button */
+input[type="submit"] {
+  align-self: flex-start;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   FOOTER — Subtle Glow + Accent Line
+===================================== */
+
+footer {
+  background: linear-gradient(120deg, #003f88, #0b53c6);
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Moving glow animation */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: footerGlow 5s linear infinite;
+}
+
+@keyframes footerGlow {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+footer p {
+  font-size: 0.95rem;
+  letter-spacing: 0.4px;
+  color: #eaeaea;
+}
+
+footer p strong {
+  color: var(--accent);
+}
+
+/* =====================================
+   HOME PAGE — Hero & Product Cards
+===================================== */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #e8f1ff 0%, #ffffff 100%);
+  padding: 60px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 60px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.hero-image img {
+  width: 420px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Product cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================================
+   ABOUT PAGE — Hero + Values + Shops
+===================================== */
+
+.about-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 60px;
+  background: linear-gradient(135deg, #ffffff, #f0f6ff);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 70px;
+}
+
+.about-values {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 720px;       
+    height: auto;            
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;           
+  }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.value-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
+   SURVEY PAGE — Hero & Form Layout
+===================================== */
+
+.survey-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #ffffff, #f0f7ff);
+  padding: 60px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 70px;
+}
+
+.survey-form {
+  background: white;
+  padding: 40px 50px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 800px;
+  margin: 0 auto;
+  gap: 25px;
+}
+
+/* =====================================
+   SEARCH PAGE — Clean & Animated
+===================================== */
+
+.search-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  background: linear-gradient(135deg, #e7f0ff 0%, #ffffff 100%);
+  padding: 60px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 60px;
+  transition: all 0.4s ease;
+}
+
+.search-hero:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+}
+
+.search-form-section {
+  background: white;
+  padding: 50px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN — Mobile Friendly
+===================================== */
+
+@media (max-width: 750px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  .hero,
+  .about-hero,
+  .survey-hero,
+  .search-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  .hero-image img,
+  .about-image img,
+  .survey-image img,
+  .search-image img {
+    width: 100%;
+  }
+}
+
+.thanks-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: linear-gradient(135deg, #f0f7ff, #ffffff);
+  }
+  
+  .thanks-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 60px 50px;
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 0.7s ease;
+  }
+  
+  .thanks-card h1 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+  }
+  
+  .thanks-card p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+  }
+  
+  .thanks-icon {
+    width: 100px;
+    margin-bottom: 20px;
+    animation: popIn 0.6s ease;
+  }
+  
+  @keyframes popIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
